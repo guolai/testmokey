@@ -93,13 +93,15 @@ CHConstructor{
 
 CHDeclareClass(GPUImageFramebuffer)
 
-CHOptimizedMethod0(self, void *, GPUImageFramebuffer, newCGImageFromFramebufferContents33333) {
-    NSLog(@"newCGImageFromFramebufferContents33333");
-}
-
-//CHDeclareMethod0(UIImage *, GPUImageFramebuffer, genenImageFromBuffer) {
-//    [self activateFramebuffer];
+//CHOptimizedMethod0(self, void *, GPUImageFramebuffer, newCGImageFromFramebufferContents33333) {
+//    NSLog(@"newCGImageFromFramebufferContents33333");
 //}
+
+CHDeclareMethod0(UIImage *, GPUImageFramebuffer, genenImageFromBuffer) {
+//    [self activateFramebuffer];
+    NSLog(@"genenImageFromBuffer");
+    return nil;
+}
 
 
 //CHDeclareMethod1(UIImage *, GPUImageFramebuffer, genenImageFromBuffer, NSString*, output){
@@ -138,7 +140,7 @@ CHOptimizedMethod0(self, void *, GPUImageFramebuffer, newCGImageFromFramebufferC
 
 CHConstructor{
     CHLoadLateClass(GPUImageFramebuffer);
-    CHHook0(GPUImageFramebuffer, newCGImageFromFramebufferContents33333);
+//    CHHook0(GPUImageFramebuffer, newCGImageFromFramebufferContents33333);
 }
 
 CHDeclareClass(GPUImageStarGlareFilter)
@@ -146,7 +148,7 @@ CHOptimizedMethod2(self, void, GPUImageStarGlareFilter, renderToTextureWithVerti
     NSLog(@"%@", self);
     GPUImageFramebuffer *fb1 = CHIvar(self,firstInputFramebuffer,__strong GPUImageFramebuffer *);
         GPUImageFramebuffer *tmpfb = fb1;
-    invokeFunctor(fb1, @selector(newCGImageFromFramebufferContents33333), nil);
+    invokeFunctor(fb1, @selector(genenImageFromBuffer), -1);
 //        CGImageRef imageRef = [tmpfb newCGImageFromFramebufferContents33333];
     //     [tmpfb performSelector:NSSelectorFromString(@"newCGImageFromFramebufferContents33333")];
     //    [fb1 newCGImageFromFramebufferContents33333];
