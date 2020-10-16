@@ -1,0 +1,998 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1432BD362539CACA0014865E /* MDConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1432BD352539CACA0014865E /* MDConfig.plist */; };
+		1432BD402539CACA0014865E /* libtestmokeyDylib.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1432BD3F2539CACA0014865E /* libtestmokeyDylib.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		1432BD452539CACA0014865E /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1432BD442539CACA0014865E /* JavaScriptCore.framework */; };
+		1432BD472539CACA0014865E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1432BD462539CACA0014865E /* Foundation.framework */; };
+		1432BD492539CACA0014865E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1432BD482539CACA0014865E /* UIKit.framework */; };
+		1432BD4E2539CACA0014865E /* testmokeyDylib.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1432BD4D2539CACA0014865E /* testmokeyDylib.mm */; };
+		1432BD512539CACA0014865E /* MDConfigManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 1432BD502539CACA0014865E /* MDConfigManager.h */; };
+		1432BD532539CACA0014865E /* MDConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1432BD522539CACA0014865E /* MDConfigManager.m */; };
+		1432BD552539CACA0014865E /* MDCycriptManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 1432BD542539CACA0014865E /* MDCycriptManager.h */; };
+		1432BD572539CACA0014865E /* MDCycriptManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1432BD562539CACA0014865E /* MDCycriptManager.m */; };
+		1432BD592539CACA0014865E /* MDMethodTrace.h in Headers */ = {isa = PBXBuildFile; fileRef = 1432BD582539CACA0014865E /* MDMethodTrace.h */; };
+		1432BD5B2539CACA0014865E /* MDMethodTrace.m in Sources */ = {isa = PBXBuildFile; fileRef = 1432BD5A2539CACA0014865E /* MDMethodTrace.m */; };
+		1432BD5E2539CACA0014865E /* a1a2-selectortramps-arm.s in Sources */ = {isa = PBXBuildFile; fileRef = 1432BD5D2539CACA0014865E /* a1a2-selectortramps-arm.s */; };
+		1432BD602539CACA0014865E /* a1a2-selectortramps-arm64.s in Sources */ = {isa = PBXBuildFile; fileRef = 1432BD5F2539CACA0014865E /* a1a2-selectortramps-arm64.s */; };
+		1432BD622539CACA0014865E /* a1a2-selectortramps-i386.s in Sources */ = {isa = PBXBuildFile; fileRef = 1432BD612539CACA0014865E /* a1a2-selectortramps-i386.s */; };
+		1432BD642539CACA0014865E /* a1a2-selectortramps-x86_64.s in Sources */ = {isa = PBXBuildFile; fileRef = 1432BD632539CACA0014865E /* a1a2-selectortramps-x86_64.s */; };
+		1432BD662539CACA0014865E /* a2a3-selectortramps-arm.s in Sources */ = {isa = PBXBuildFile; fileRef = 1432BD652539CACA0014865E /* a2a3-selectortramps-arm.s */; };
+		1432BD682539CACA0014865E /* a2a3-selectortramps-i386.s in Sources */ = {isa = PBXBuildFile; fileRef = 1432BD672539CACA0014865E /* a2a3-selectortramps-i386.s */; };
+		1432BD6A2539CACA0014865E /* a2a3-selectortramps-x86_64.s in Sources */ = {isa = PBXBuildFile; fileRef = 1432BD692539CACA0014865E /* a2a3-selectortramps-x86_64.s */; };
+		1432BD6C2539CACA0014865E /* OCMethodTrace.h in Headers */ = {isa = PBXBuildFile; fileRef = 1432BD6B2539CACA0014865E /* OCMethodTrace.h */; };
+		1432BD6E2539CACA0014865E /* OCMethodTrace.m in Sources */ = {isa = PBXBuildFile; fileRef = 1432BD6D2539CACA0014865E /* OCMethodTrace.m */; };
+		1432BD702539CACA0014865E /* OCSelectorTrampolines.h in Headers */ = {isa = PBXBuildFile; fileRef = 1432BD6F2539CACA0014865E /* OCSelectorTrampolines.h */; };
+		1432BD722539CACA0014865E /* OCSelectorTrampolines.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1432BD712539CACA0014865E /* OCSelectorTrampolines.mm */; };
+		1432BD762539CACA0014865E /* LLDBTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 1432BD752539CACA0014865E /* LLDBTools.h */; };
+		1432BD782539CACA0014865E /* LLDBTools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1432BD772539CACA0014865E /* LLDBTools.mm */; };
+		1432BD7D2539CACA0014865E /* AntiAntiDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = 1432BD7C2539CACA0014865E /* AntiAntiDebug.m */; };
+		1432BD802539CACA0014865E /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = 1432BD7F2539CACA0014865E /* fishhook.c */; };
+		1432BD822539CACA0014865E /* fishhook.h in Headers */ = {isa = PBXBuildFile; fileRef = 1432BD812539CACA0014865E /* fishhook.h */; };
+		1432BD842539CACA0014865E /* testmokeyDylib.h in Headers */ = {isa = PBXBuildFile; fileRef = 1432BD832539CACA0014865E /* testmokeyDylib.h */; };
+		1432BD862539CACA0014865E /* testmokeyDylib.m in Sources */ = {isa = PBXBuildFile; fileRef = 1432BD852539CACA0014865E /* testmokeyDylib.m */; };
+		1432BD902539CB2F0014865E /* BlingBling.ipa in Resources */ = {isa = PBXBuildFile; fileRef = 1432BD8F2539CB2F0014865E /* BlingBling.ipa */; };
+		1432BDBF2539CB9C0014865E /* KSMethodLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 1432BD932539CB9C0014865E /* KSMethodLibrary.h */; };
+		1432BDC02539CB9C0014865E /* KSMethodProfile.h in Headers */ = {isa = PBXBuildFile; fileRef = 1432BD942539CB9C0014865E /* KSMethodProfile.h */; };
+		1432BDC12539CB9C0014865E /* KSBaseManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 1432BD952539CB9C0014865E /* KSBaseManager.h */; };
+		1432BDC22539CB9C0014865E /* NSArray+KSWeakArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 1432BD972539CB9C0014865E /* NSArray+KSWeakArray.h */; };
+		1432BDC32539CB9C0014865E /* NSArray+WeakArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 1432BD982539CB9C0014865E /* NSArray+WeakArray.m */; };
+		1432BDC42539CB9C0014865E /* NSArray+WeakArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 1432BD992539CB9C0014865E /* NSArray+WeakArray.h */; };
+		1432BDC52539CB9C0014865E /* NSArray+KSWeakArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 1432BD9A2539CB9C0014865E /* NSArray+KSWeakArray.m */; };
+		1432BDC62539CB9C0014865E /* BUIControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 1432BD9C2539CB9C0014865E /* BUIControl.h */; };
+		1432BDC72539CB9C0014865E /* UIActionSheet+KSBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 1432BD9D2539CB9C0014865E /* UIActionSheet+KSBlock.h */; };
+		1432BDC82539CB9C0014865E /* UIAlertView+KSBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 1432BD9E2539CB9C0014865E /* UIAlertView+KSBlock.h */; };
+		1432BDC92539CB9C0014865E /* UIControl+KSBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 1432BD9F2539CB9C0014865E /* UIControl+KSBlock.m */; };
+		1432BDCA2539CB9C0014865E /* BUIView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1432BDA02539CB9C0014865E /* BUIView.h */; };
+		1432BDCB2539CB9C0014865E /* UIAlertView+KSBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 1432BDA12539CB9C0014865E /* UIAlertView+KSBlock.m */; };
+		1432BDCC2539CB9C0014865E /* UIActionSheet+KSBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 1432BDA22539CB9C0014865E /* UIActionSheet+KSBlock.m */; };
+		1432BDCD2539CB9C0014865E /* BUIControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 1432BDA32539CB9C0014865E /* BUIControl.m */; };
+		1432BDCE2539CB9C0014865E /* UIControl+KSBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 1432BDA42539CB9C0014865E /* UIControl+KSBlock.h */; };
+		1432BDCF2539CB9C0014865E /* BUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1432BDA52539CB9C0014865E /* BUIView.m */; };
+		1432BDD02539CB9C0014865E /* BlockUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 1432BDA62539CB9C0014865E /* BlockUI.h */; };
+		1432BDD12539CB9C0014865E /* KSMethodProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 1432BDA72539CB9C0014865E /* KSMethodProfile.m */; };
+		1432BDD22539CB9C0014865E /* KSBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1432BDA82539CB9C0014865E /* KSBaseManager.m */; };
+		1432BDD32539CB9C0014865E /* STScript.h in Headers */ = {isa = PBXBuildFile; fileRef = 1432BDAA2539CB9C0014865E /* STScript.h */; };
+		1432BDD42539CB9C0014865E /* STObjCRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 1432BDAB2539CB9C0014865E /* STObjCRuntime.m */; settings = {COMPILER_FLAGS = "-ObjC -fno-objc-arc"; }; };
+		1432BDD52539CB9C0014865E /* STSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = 1432BDAC2539CB9C0014865E /* STSelector.h */; };
+		1432BDD62539CB9C0014865E /* STExterns.m in Sources */ = {isa = PBXBuildFile; fileRef = 1432BDAD2539CB9C0014865E /* STExterns.m */; settings = {COMPILER_FLAGS = "-ObjC -fno-objc-arc"; }; };
+		1432BDD72539CB9C0014865E /* STScripting.h in Headers */ = {isa = PBXBuildFile; fileRef = 1432BDAE2539CB9C0014865E /* STScripting.h */; };
+		1432BDD82539CB9C0014865E /* OSXObjcRuntime+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1432BDAF2539CB9C0014865E /* OSXObjcRuntime+Additions.m */; settings = {COMPILER_FLAGS = "-ObjC -fno-objc-arc"; }; };
+		1432BDD92539CB9C0014865E /* STStructure.h in Headers */ = {isa = PBXBuildFile; fileRef = 1432BDB02539CB9C0014865E /* STStructure.h */; };
+		1432BDDA2539CB9C0014865E /* STCocoa.h in Headers */ = {isa = PBXBuildFile; fileRef = 1432BDB12539CB9C0014865E /* STCocoa.h */; };
+		1432BDDB2539CB9C0014865E /* NSInvocation+additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1432BDB22539CB9C0014865E /* NSInvocation+additions.m */; settings = {COMPILER_FLAGS = "-ObjC -fno-objc-arc"; }; };
+		1432BDDC2539CB9C0014865E /* STObjCRuntime.h in Headers */ = {isa = PBXBuildFile; fileRef = 1432BDB32539CB9C0014865E /* STObjCRuntime.h */; };
+		1432BDDD2539CB9C0014865E /* STCompat.h in Headers */ = {isa = PBXBuildFile; fileRef = 1432BDB42539CB9C0014865E /* STCompat.h */; };
+		1432BDDE2539CB9C0014865E /* STScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 1432BDB52539CB9C0014865E /* STScript.m */; settings = {COMPILER_FLAGS = "-ObjC -fno-objc-arc"; }; };
+		1432BDDF2539CB9C0014865E /* STScripting.m in Sources */ = {isa = PBXBuildFile; fileRef = 1432BDB62539CB9C0014865E /* STScripting.m */; settings = {COMPILER_FLAGS = "-ObjC -fno-objc-arc"; }; };
+		1432BDE02539CB9C0014865E /* STExterns.h in Headers */ = {isa = PBXBuildFile; fileRef = 1432BDB72539CB9C0014865E /* STExterns.h */; };
+		1432BDE12539CB9C0014865E /* STSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 1432BDB82539CB9C0014865E /* STSelector.m */; settings = {COMPILER_FLAGS = "-ObjC -fno-objc-arc"; }; };
+		1432BDE22539CB9C0014865E /* ObjcRuntimeSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 1432BDB92539CB9C0014865E /* ObjcRuntimeSupport.h */; };
+		1432BDE32539CB9C0014865E /* OSXObjcRuntimeSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 1432BDBA2539CB9C0014865E /* OSXObjcRuntimeSupport.m */; settings = {COMPILER_FLAGS = "-ObjC -fno-objc-arc"; }; };
+		1432BDE42539CB9C0014865E /* NSInvocation+additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1432BDBB2539CB9C0014865E /* NSInvocation+additions.h */; };
+		1432BDE52539CB9C0014865E /* STCocoa.m in Sources */ = {isa = PBXBuildFile; fileRef = 1432BDBC2539CB9C0014865E /* STCocoa.m */; settings = {COMPILER_FLAGS = "-ObjC -fno-objc-arc"; }; };
+		1432BDE62539CB9C0014865E /* STStructure.m in Sources */ = {isa = PBXBuildFile; fileRef = 1432BDBD2539CB9C0014865E /* STStructure.m */; settings = {COMPILER_FLAGS = "-ObjC -fno-objc-arc"; }; };
+		1432BDE72539CB9C0014865E /* OSXObjcRuntime+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1432BDBE2539CB9C0014865E /* OSXObjcRuntime+Additions.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1432BD412539CACA0014865E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1432BD232539CACA0014865E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1432BD3E2539CACA0014865E;
+			remoteInfo = testmokeyDylib;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1432BD2B2539CACA0014865E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1432BD402539CACA0014865E /* libtestmokeyDylib.dylib in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1432BD2E2539CACA0014865E /* testmokey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testmokey.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1432BD312539CACA0014865E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		1432BD332539CACA0014865E /* quick-resign.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "quick-resign.sh"; sourceTree = "<group>"; };
+		1432BD352539CACA0014865E /* MDConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = MDConfig.plist; sourceTree = "<group>"; };
+		1432BD382539CACA0014865E /* put ipa or app here */ = {isa = PBXFileReference; lastKnownFileType = text; path = "put ipa or app here"; sourceTree = "<group>"; };
+		1432BD392539CACA0014865E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1432BD3F2539CACA0014865E /* libtestmokeyDylib.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libtestmokeyDylib.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		1432BD442539CACA0014865E /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		1432BD462539CACA0014865E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1432BD482539CACA0014865E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1432BD4C2539CACA0014865E /* testmokeyDylib.xm */ = {isa = PBXFileReference; lastKnownFileType = text; path = testmokeyDylib.xm; sourceTree = "<group>"; };
+		1432BD4D2539CACA0014865E /* testmokeyDylib.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = testmokeyDylib.mm; sourceTree = "<group>"; };
+		1432BD502539CACA0014865E /* MDConfigManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDConfigManager.h; sourceTree = "<group>"; };
+		1432BD522539CACA0014865E /* MDConfigManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MDConfigManager.m; sourceTree = "<group>"; };
+		1432BD542539CACA0014865E /* MDCycriptManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDCycriptManager.h; sourceTree = "<group>"; };
+		1432BD562539CACA0014865E /* MDCycriptManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MDCycriptManager.m; sourceTree = "<group>"; };
+		1432BD582539CACA0014865E /* MDMethodTrace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDMethodTrace.h; sourceTree = "<group>"; };
+		1432BD5A2539CACA0014865E /* MDMethodTrace.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MDMethodTrace.m; sourceTree = "<group>"; };
+		1432BD5D2539CACA0014865E /* a1a2-selectortramps-arm.s */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm; path = "a1a2-selectortramps-arm.s"; sourceTree = "<group>"; };
+		1432BD5F2539CACA0014865E /* a1a2-selectortramps-arm64.s */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm; path = "a1a2-selectortramps-arm64.s"; sourceTree = "<group>"; };
+		1432BD612539CACA0014865E /* a1a2-selectortramps-i386.s */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm; path = "a1a2-selectortramps-i386.s"; sourceTree = "<group>"; };
+		1432BD632539CACA0014865E /* a1a2-selectortramps-x86_64.s */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm; path = "a1a2-selectortramps-x86_64.s"; sourceTree = "<group>"; };
+		1432BD652539CACA0014865E /* a2a3-selectortramps-arm.s */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm; path = "a2a3-selectortramps-arm.s"; sourceTree = "<group>"; };
+		1432BD672539CACA0014865E /* a2a3-selectortramps-i386.s */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm; path = "a2a3-selectortramps-i386.s"; sourceTree = "<group>"; };
+		1432BD692539CACA0014865E /* a2a3-selectortramps-x86_64.s */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.asm; path = "a2a3-selectortramps-x86_64.s"; sourceTree = "<group>"; };
+		1432BD6B2539CACA0014865E /* OCMethodTrace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCMethodTrace.h; sourceTree = "<group>"; };
+		1432BD6D2539CACA0014865E /* OCMethodTrace.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCMethodTrace.m; sourceTree = "<group>"; };
+		1432BD6F2539CACA0014865E /* OCSelectorTrampolines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCSelectorTrampolines.h; sourceTree = "<group>"; };
+		1432BD712539CACA0014865E /* OCSelectorTrampolines.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = OCSelectorTrampolines.mm; sourceTree = "<group>"; };
+		1432BD732539CACA0014865E /* selectortramps.mac */ = {isa = PBXFileReference; lastKnownFileType = text; path = selectortramps.mac; sourceTree = "<group>"; };
+		1432BD752539CACA0014865E /* LLDBTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LLDBTools.h; sourceTree = "<group>"; };
+		1432BD772539CACA0014865E /* LLDBTools.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = LLDBTools.mm; sourceTree = "<group>"; };
+		1432BD7A2539CACA0014865E /* testmokeyDylib-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "testmokeyDylib-Prefix.pch"; path = "../testmokeyDylib-Prefix.pch"; sourceTree = "<group>"; };
+		1432BD7C2539CACA0014865E /* AntiAntiDebug.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AntiAntiDebug.m; sourceTree = "<group>"; };
+		1432BD7F2539CACA0014865E /* fishhook.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = fishhook.c; sourceTree = "<group>"; };
+		1432BD812539CACA0014865E /* fishhook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fishhook.h; sourceTree = "<group>"; };
+		1432BD832539CACA0014865E /* testmokeyDylib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testmokeyDylib.h; sourceTree = "<group>"; };
+		1432BD852539CACA0014865E /* testmokeyDylib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = testmokeyDylib.m; sourceTree = "<group>"; };
+		1432BD8F2539CB2F0014865E /* BlingBling.ipa */ = {isa = PBXFileReference; lastKnownFileType = file; path = BlingBling.ipa; sourceTree = "<group>"; };
+		1432BD932539CB9C0014865E /* KSMethodLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSMethodLibrary.h; sourceTree = "<group>"; };
+		1432BD942539CB9C0014865E /* KSMethodProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSMethodProfile.h; sourceTree = "<group>"; };
+		1432BD952539CB9C0014865E /* KSBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSBaseManager.h; sourceTree = "<group>"; };
+		1432BD972539CB9C0014865E /* NSArray+KSWeakArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+KSWeakArray.h"; sourceTree = "<group>"; };
+		1432BD982539CB9C0014865E /* NSArray+WeakArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+WeakArray.m"; sourceTree = "<group>"; };
+		1432BD992539CB9C0014865E /* NSArray+WeakArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+WeakArray.h"; sourceTree = "<group>"; };
+		1432BD9A2539CB9C0014865E /* NSArray+KSWeakArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+KSWeakArray.m"; sourceTree = "<group>"; };
+		1432BD9C2539CB9C0014865E /* BUIControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUIControl.h; sourceTree = "<group>"; };
+		1432BD9D2539CB9C0014865E /* UIActionSheet+KSBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+KSBlock.h"; sourceTree = "<group>"; };
+		1432BD9E2539CB9C0014865E /* UIAlertView+KSBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+KSBlock.h"; sourceTree = "<group>"; };
+		1432BD9F2539CB9C0014865E /* UIControl+KSBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+KSBlock.m"; sourceTree = "<group>"; };
+		1432BDA02539CB9C0014865E /* BUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BUIView.h; sourceTree = "<group>"; };
+		1432BDA12539CB9C0014865E /* UIAlertView+KSBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+KSBlock.m"; sourceTree = "<group>"; };
+		1432BDA22539CB9C0014865E /* UIActionSheet+KSBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+KSBlock.m"; sourceTree = "<group>"; };
+		1432BDA32539CB9C0014865E /* BUIControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUIControl.m; sourceTree = "<group>"; };
+		1432BDA42539CB9C0014865E /* UIControl+KSBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+KSBlock.h"; sourceTree = "<group>"; };
+		1432BDA52539CB9C0014865E /* BUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BUIView.m; sourceTree = "<group>"; };
+		1432BDA62539CB9C0014865E /* BlockUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockUI.h; sourceTree = "<group>"; };
+		1432BDA72539CB9C0014865E /* KSMethodProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSMethodProfile.m; sourceTree = "<group>"; };
+		1432BDA82539CB9C0014865E /* KSBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBaseManager.m; sourceTree = "<group>"; };
+		1432BDAA2539CB9C0014865E /* STScript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STScript.h; sourceTree = "<group>"; };
+		1432BDAB2539CB9C0014865E /* STObjCRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STObjCRuntime.m; sourceTree = "<group>"; };
+		1432BDAC2539CB9C0014865E /* STSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSelector.h; sourceTree = "<group>"; };
+		1432BDAD2539CB9C0014865E /* STExterns.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STExterns.m; sourceTree = "<group>"; };
+		1432BDAE2539CB9C0014865E /* STScripting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STScripting.h; sourceTree = "<group>"; };
+		1432BDAF2539CB9C0014865E /* OSXObjcRuntime+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OSXObjcRuntime+Additions.m"; sourceTree = "<group>"; };
+		1432BDB02539CB9C0014865E /* STStructure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STStructure.h; sourceTree = "<group>"; };
+		1432BDB12539CB9C0014865E /* STCocoa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCocoa.h; sourceTree = "<group>"; };
+		1432BDB22539CB9C0014865E /* NSInvocation+additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+additions.m"; sourceTree = "<group>"; };
+		1432BDB32539CB9C0014865E /* STObjCRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STObjCRuntime.h; sourceTree = "<group>"; };
+		1432BDB42539CB9C0014865E /* STCompat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STCompat.h; sourceTree = "<group>"; };
+		1432BDB52539CB9C0014865E /* STScript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STScript.m; sourceTree = "<group>"; };
+		1432BDB62539CB9C0014865E /* STScripting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STScripting.m; sourceTree = "<group>"; };
+		1432BDB72539CB9C0014865E /* STExterns.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STExterns.h; sourceTree = "<group>"; };
+		1432BDB82539CB9C0014865E /* STSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSelector.m; sourceTree = "<group>"; };
+		1432BDB92539CB9C0014865E /* ObjcRuntimeSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjcRuntimeSupport.h; sourceTree = "<group>"; };
+		1432BDBA2539CB9C0014865E /* OSXObjcRuntimeSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSXObjcRuntimeSupport.m; sourceTree = "<group>"; };
+		1432BDBB2539CB9C0014865E /* NSInvocation+additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+additions.h"; sourceTree = "<group>"; };
+		1432BDBC2539CB9C0014865E /* STCocoa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCocoa.m; sourceTree = "<group>"; };
+		1432BDBD2539CB9C0014865E /* STStructure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STStructure.m; sourceTree = "<group>"; };
+		1432BDBE2539CB9C0014865E /* OSXObjcRuntime+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OSXObjcRuntime+Additions.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1432BD282539CACA0014865E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1432BD3C2539CACA0014865E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1432BD452539CACA0014865E /* JavaScriptCore.framework in Frameworks */,
+				1432BD492539CACA0014865E /* UIKit.framework in Frameworks */,
+				1432BD472539CACA0014865E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1432BD222539CACA0014865E = {
+			isa = PBXGroup;
+			children = (
+				1432BD302539CACA0014865E /* testmokey */,
+				1432BD4A2539CACA0014865E /* testmokeyDylib */,
+				1432BD432539CACA0014865E /* Frameworks */,
+				1432BD2F2539CACA0014865E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1432BD2F2539CACA0014865E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1432BD2E2539CACA0014865E /* testmokey.app */,
+				1432BD3F2539CACA0014865E /* libtestmokeyDylib.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1432BD302539CACA0014865E /* testmokey */ = {
+			isa = PBXGroup;
+			children = (
+				1432BD312539CACA0014865E /* icon.png */,
+				1432BD392539CACA0014865E /* Info.plist */,
+				1432BD322539CACA0014865E /* Scripts */,
+				1432BD342539CACA0014865E /* Config */,
+				1432BD372539CACA0014865E /* TargetApp */,
+			);
+			path = testmokey;
+			sourceTree = "<group>";
+		};
+		1432BD322539CACA0014865E /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				1432BD332539CACA0014865E /* quick-resign.sh */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
+		1432BD342539CACA0014865E /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				1432BD352539CACA0014865E /* MDConfig.plist */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		1432BD372539CACA0014865E /* TargetApp */ = {
+			isa = PBXGroup;
+			children = (
+				1432BD8F2539CB2F0014865E /* BlingBling.ipa */,
+				1432BD382539CACA0014865E /* put ipa or app here */,
+			);
+			path = TargetApp;
+			sourceTree = "<group>";
+		};
+		1432BD432539CACA0014865E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1432BD442539CACA0014865E /* JavaScriptCore.framework */,
+				1432BD462539CACA0014865E /* Foundation.framework */,
+				1432BD482539CACA0014865E /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1432BD4A2539CACA0014865E /* testmokeyDylib */ = {
+			isa = PBXGroup;
+			children = (
+				1432BD832539CACA0014865E /* testmokeyDylib.h */,
+				1432BD852539CACA0014865E /* testmokeyDylib.m */,
+				1432BD4B2539CACA0014865E /* Logos */,
+				1432BD4F2539CACA0014865E /* Config */,
+				1432BD5C2539CACA0014865E /* Trace */,
+				1432BD742539CACA0014865E /* Tools */,
+				1432BD7B2539CACA0014865E /* AntiAntiDebug */,
+				1432BD7E2539CACA0014865E /* fishhook */,
+				1432BD792539CACA0014865E /* Supporting Files */,
+			);
+			path = testmokeyDylib;
+			sourceTree = "<group>";
+		};
+		1432BD4B2539CACA0014865E /* Logos */ = {
+			isa = PBXGroup;
+			children = (
+				1432BD4C2539CACA0014865E /* testmokeyDylib.xm */,
+				1432BD4D2539CACA0014865E /* testmokeyDylib.mm */,
+			);
+			path = Logos;
+			sourceTree = "<group>";
+		};
+		1432BD4F2539CACA0014865E /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				1432BD502539CACA0014865E /* MDConfigManager.h */,
+				1432BD522539CACA0014865E /* MDConfigManager.m */,
+				1432BD542539CACA0014865E /* MDCycriptManager.h */,
+				1432BD562539CACA0014865E /* MDCycriptManager.m */,
+				1432BD582539CACA0014865E /* MDMethodTrace.h */,
+				1432BD5A2539CACA0014865E /* MDMethodTrace.m */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		1432BD5C2539CACA0014865E /* Trace */ = {
+			isa = PBXGroup;
+			children = (
+				1432BD5D2539CACA0014865E /* a1a2-selectortramps-arm.s */,
+				1432BD5F2539CACA0014865E /* a1a2-selectortramps-arm64.s */,
+				1432BD612539CACA0014865E /* a1a2-selectortramps-i386.s */,
+				1432BD632539CACA0014865E /* a1a2-selectortramps-x86_64.s */,
+				1432BD652539CACA0014865E /* a2a3-selectortramps-arm.s */,
+				1432BD672539CACA0014865E /* a2a3-selectortramps-i386.s */,
+				1432BD692539CACA0014865E /* a2a3-selectortramps-x86_64.s */,
+				1432BD6B2539CACA0014865E /* OCMethodTrace.h */,
+				1432BD6D2539CACA0014865E /* OCMethodTrace.m */,
+				1432BD6F2539CACA0014865E /* OCSelectorTrampolines.h */,
+				1432BD712539CACA0014865E /* OCSelectorTrampolines.mm */,
+				1432BD732539CACA0014865E /* selectortramps.mac */,
+			);
+			path = Trace;
+			sourceTree = "<group>";
+		};
+		1432BD742539CACA0014865E /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				1432BD912539CB9C0014865E /* KSMethodLibrary */,
+				1432BD752539CACA0014865E /* LLDBTools.h */,
+				1432BD772539CACA0014865E /* LLDBTools.mm */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		1432BD792539CACA0014865E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1432BD7A2539CACA0014865E /* testmokeyDylib-Prefix.pch */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1432BD7B2539CACA0014865E /* AntiAntiDebug */ = {
+			isa = PBXGroup;
+			children = (
+				1432BD7C2539CACA0014865E /* AntiAntiDebug.m */,
+			);
+			path = AntiAntiDebug;
+			sourceTree = "<group>";
+		};
+		1432BD7E2539CACA0014865E /* fishhook */ = {
+			isa = PBXGroup;
+			children = (
+				1432BD7F2539CACA0014865E /* fishhook.c */,
+				1432BD812539CACA0014865E /* fishhook.h */,
+			);
+			path = fishhook;
+			sourceTree = "<group>";
+		};
+		1432BD912539CB9C0014865E /* KSMethodLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				1432BD922539CB9C0014865E /* Class */,
+				1432BDA92539CB9C0014865E /* StepTalk */,
+			);
+			path = KSMethodLibrary;
+			sourceTree = "<group>";
+		};
+		1432BD922539CB9C0014865E /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				1432BD932539CB9C0014865E /* KSMethodLibrary.h */,
+				1432BD942539CB9C0014865E /* KSMethodProfile.h */,
+				1432BD952539CB9C0014865E /* KSBaseManager.h */,
+				1432BD962539CB9C0014865E /* Utils */,
+				1432BD9B2539CB9C0014865E /* BlockUI */,
+				1432BDA72539CB9C0014865E /* KSMethodProfile.m */,
+				1432BDA82539CB9C0014865E /* KSBaseManager.m */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		1432BD962539CB9C0014865E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1432BD972539CB9C0014865E /* NSArray+KSWeakArray.h */,
+				1432BD982539CB9C0014865E /* NSArray+WeakArray.m */,
+				1432BD992539CB9C0014865E /* NSArray+WeakArray.h */,
+				1432BD9A2539CB9C0014865E /* NSArray+KSWeakArray.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		1432BD9B2539CB9C0014865E /* BlockUI */ = {
+			isa = PBXGroup;
+			children = (
+				1432BD9C2539CB9C0014865E /* BUIControl.h */,
+				1432BD9D2539CB9C0014865E /* UIActionSheet+KSBlock.h */,
+				1432BD9E2539CB9C0014865E /* UIAlertView+KSBlock.h */,
+				1432BD9F2539CB9C0014865E /* UIControl+KSBlock.m */,
+				1432BDA02539CB9C0014865E /* BUIView.h */,
+				1432BDA12539CB9C0014865E /* UIAlertView+KSBlock.m */,
+				1432BDA22539CB9C0014865E /* UIActionSheet+KSBlock.m */,
+				1432BDA32539CB9C0014865E /* BUIControl.m */,
+				1432BDA42539CB9C0014865E /* UIControl+KSBlock.h */,
+				1432BDA52539CB9C0014865E /* BUIView.m */,
+				1432BDA62539CB9C0014865E /* BlockUI.h */,
+			);
+			path = BlockUI;
+			sourceTree = "<group>";
+		};
+		1432BDA92539CB9C0014865E /* StepTalk */ = {
+			isa = PBXGroup;
+			children = (
+				1432BDAA2539CB9C0014865E /* STScript.h */,
+				1432BDAB2539CB9C0014865E /* STObjCRuntime.m */,
+				1432BDAC2539CB9C0014865E /* STSelector.h */,
+				1432BDAD2539CB9C0014865E /* STExterns.m */,
+				1432BDAE2539CB9C0014865E /* STScripting.h */,
+				1432BDAF2539CB9C0014865E /* OSXObjcRuntime+Additions.m */,
+				1432BDB02539CB9C0014865E /* STStructure.h */,
+				1432BDB12539CB9C0014865E /* STCocoa.h */,
+				1432BDB22539CB9C0014865E /* NSInvocation+additions.m */,
+				1432BDB32539CB9C0014865E /* STObjCRuntime.h */,
+				1432BDB42539CB9C0014865E /* STCompat.h */,
+				1432BDB52539CB9C0014865E /* STScript.m */,
+				1432BDB62539CB9C0014865E /* STScripting.m */,
+				1432BDB72539CB9C0014865E /* STExterns.h */,
+				1432BDB82539CB9C0014865E /* STSelector.m */,
+				1432BDB92539CB9C0014865E /* ObjcRuntimeSupport.h */,
+				1432BDBA2539CB9C0014865E /* OSXObjcRuntimeSupport.m */,
+				1432BDBB2539CB9C0014865E /* NSInvocation+additions.h */,
+				1432BDBC2539CB9C0014865E /* STCocoa.m */,
+				1432BDBD2539CB9C0014865E /* STStructure.m */,
+				1432BDBE2539CB9C0014865E /* OSXObjcRuntime+Additions.h */,
+			);
+			path = StepTalk;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		1432BD3D2539CACA0014865E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1432BDE42539CB9C0014865E /* NSInvocation+additions.h in Headers */,
+				1432BDC82539CB9C0014865E /* UIAlertView+KSBlock.h in Headers */,
+				1432BDC72539CB9C0014865E /* UIActionSheet+KSBlock.h in Headers */,
+				1432BDD02539CB9C0014865E /* BlockUI.h in Headers */,
+				1432BDDA2539CB9C0014865E /* STCocoa.h in Headers */,
+				1432BD552539CACA0014865E /* MDCycriptManager.h in Headers */,
+				1432BD592539CACA0014865E /* MDMethodTrace.h in Headers */,
+				1432BDD72539CB9C0014865E /* STScripting.h in Headers */,
+				1432BDBF2539CB9C0014865E /* KSMethodLibrary.h in Headers */,
+				1432BD822539CACA0014865E /* fishhook.h in Headers */,
+				1432BDE02539CB9C0014865E /* STExterns.h in Headers */,
+				1432BDDD2539CB9C0014865E /* STCompat.h in Headers */,
+				1432BD762539CACA0014865E /* LLDBTools.h in Headers */,
+				1432BDD92539CB9C0014865E /* STStructure.h in Headers */,
+				1432BD512539CACA0014865E /* MDConfigManager.h in Headers */,
+				1432BD702539CACA0014865E /* OCSelectorTrampolines.h in Headers */,
+				1432BDC22539CB9C0014865E /* NSArray+KSWeakArray.h in Headers */,
+				1432BDC12539CB9C0014865E /* KSBaseManager.h in Headers */,
+				1432BDD32539CB9C0014865E /* STScript.h in Headers */,
+				1432BDC62539CB9C0014865E /* BUIControl.h in Headers */,
+				1432BDCE2539CB9C0014865E /* UIControl+KSBlock.h in Headers */,
+				1432BDCA2539CB9C0014865E /* BUIView.h in Headers */,
+				1432BDC42539CB9C0014865E /* NSArray+WeakArray.h in Headers */,
+				1432BDC02539CB9C0014865E /* KSMethodProfile.h in Headers */,
+				1432BD6C2539CACA0014865E /* OCMethodTrace.h in Headers */,
+				1432BDD52539CB9C0014865E /* STSelector.h in Headers */,
+				1432BDE22539CB9C0014865E /* ObjcRuntimeSupport.h in Headers */,
+				1432BDDC2539CB9C0014865E /* STObjCRuntime.h in Headers */,
+				1432BDE72539CB9C0014865E /* OSXObjcRuntime+Additions.h in Headers */,
+				1432BD842539CACA0014865E /* testmokeyDylib.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		1432BD2D2539CACA0014865E /* testmokey */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1432BD8C2539CACA0014865E /* Build configuration list for PBXNativeTarget "testmokey" */;
+			buildPhases = (
+				1432BD272539CACA0014865E /* Sources */,
+				1432BD282539CACA0014865E /* Frameworks */,
+				1432BD292539CACA0014865E /* ShellScript */,
+				1432BD2A2539CACA0014865E /* Resources */,
+				1432BD2B2539CACA0014865E /* CopyFiles */,
+				1432BD2C2539CACA0014865E /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1432BD422539CACA0014865E /* PBXTargetDependency */,
+			);
+			name = testmokey;
+			productName = testmokey;
+			productReference = 1432BD2E2539CACA0014865E /* testmokey.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1432BD3E2539CACA0014865E /* testmokeyDylib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1432BD892539CACA0014865E /* Build configuration list for PBXNativeTarget "testmokeyDylib" */;
+			buildPhases = (
+				1432BD3A2539CACA0014865E /* ShellScript */,
+				1432BD3B2539CACA0014865E /* Sources */,
+				1432BD3C2539CACA0014865E /* Frameworks */,
+				1432BD3D2539CACA0014865E /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = testmokeyDylib;
+			productName = testmokeyDylib;
+			productReference = 1432BD3F2539CACA0014865E /* libtestmokeyDylib.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1432BD232539CACA0014865E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1160;
+				ORGANIZATIONNAME = HaiboZhu;
+				TargetAttributes = {
+					1432BD2D2539CACA0014865E = {
+						CreatedOnToolsVersion = 11.6;
+					};
+					1432BD3E2539CACA0014865E = {
+						CreatedOnToolsVersion = 11.6;
+					};
+				};
+			};
+			buildConfigurationList = 1432BD262539CACA0014865E /* Build configuration list for PBXProject "testmokey" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1432BD222539CACA0014865E;
+			productRefGroup = 1432BD2F2539CACA0014865E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1432BD2D2539CACA0014865E /* testmokey */,
+				1432BD3E2539CACA0014865E /* testmokeyDylib */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1432BD2A2539CACA0014865E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1432BD902539CB2F0014865E /* BlingBling.ipa in Resources */,
+				1432BD362539CACA0014865E /* MDConfig.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1432BD292539CACA0014865E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = /opt/MonkeyDev/Tools/pack.sh;
+		};
+		1432BD2C2539CACA0014865E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/MonkeyDev/Tools/pack.sh codesign";
+		};
+		1432BD3A2539CACA0014865E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/MonkeyDev/bin/md --xcbp-logos";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1432BD272539CACA0014865E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1432BD3B2539CACA0014865E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1432BD572539CACA0014865E /* MDCycriptManager.m in Sources */,
+				1432BD602539CACA0014865E /* a1a2-selectortramps-arm64.s in Sources */,
+				1432BDDF2539CB9C0014865E /* STScripting.m in Sources */,
+				1432BDDB2539CB9C0014865E /* NSInvocation+additions.m in Sources */,
+				1432BD5E2539CACA0014865E /* a1a2-selectortramps-arm.s in Sources */,
+				1432BDD82539CB9C0014865E /* OSXObjcRuntime+Additions.m in Sources */,
+				1432BDCD2539CB9C0014865E /* BUIControl.m in Sources */,
+				1432BD642539CACA0014865E /* a1a2-selectortramps-x86_64.s in Sources */,
+				1432BD6E2539CACA0014865E /* OCMethodTrace.m in Sources */,
+				1432BDC92539CB9C0014865E /* UIControl+KSBlock.m in Sources */,
+				1432BDCF2539CB9C0014865E /* BUIView.m in Sources */,
+				1432BD532539CACA0014865E /* MDConfigManager.m in Sources */,
+				1432BD802539CACA0014865E /* fishhook.c in Sources */,
+				1432BDD42539CB9C0014865E /* STObjCRuntime.m in Sources */,
+				1432BDD22539CB9C0014865E /* KSBaseManager.m in Sources */,
+				1432BDDE2539CB9C0014865E /* STScript.m in Sources */,
+				1432BD7D2539CACA0014865E /* AntiAntiDebug.m in Sources */,
+				1432BDE12539CB9C0014865E /* STSelector.m in Sources */,
+				1432BD722539CACA0014865E /* OCSelectorTrampolines.mm in Sources */,
+				1432BDD12539CB9C0014865E /* KSMethodProfile.m in Sources */,
+				1432BD622539CACA0014865E /* a1a2-selectortramps-i386.s in Sources */,
+				1432BD682539CACA0014865E /* a2a3-selectortramps-i386.s in Sources */,
+				1432BD662539CACA0014865E /* a2a3-selectortramps-arm.s in Sources */,
+				1432BDE52539CB9C0014865E /* STCocoa.m in Sources */,
+				1432BD4E2539CACA0014865E /* testmokeyDylib.mm in Sources */,
+				1432BD862539CACA0014865E /* testmokeyDylib.m in Sources */,
+				1432BD782539CACA0014865E /* LLDBTools.mm in Sources */,
+				1432BD6A2539CACA0014865E /* a2a3-selectortramps-x86_64.s in Sources */,
+				1432BDCC2539CB9C0014865E /* UIActionSheet+KSBlock.m in Sources */,
+				1432BDCB2539CB9C0014865E /* UIAlertView+KSBlock.m in Sources */,
+				1432BDC32539CB9C0014865E /* NSArray+WeakArray.m in Sources */,
+				1432BD5B2539CACA0014865E /* MDMethodTrace.m in Sources */,
+				1432BDE62539CB9C0014865E /* STStructure.m in Sources */,
+				1432BDD62539CB9C0014865E /* STExterns.m in Sources */,
+				1432BDC52539CB9C0014865E /* NSArray+KSWeakArray.m in Sources */,
+				1432BDE32539CB9C0014865E /* OSXObjcRuntimeSupport.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1432BD422539CACA0014865E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1432BD3E2539CACA0014865E /* testmokeyDylib */;
+			targetProxy = 1432BD412539CACA0014865E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1432BD872539CACA0014865E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1432BD882539CACA0014865E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1432BD8A2539CACA0014865E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UB6H7XT56R;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				ENABLE_BITCODE = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				EXECUTABLE_PREFIX = lib;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(MonkeyDevPath)/Frameworks/**",
+					"$(MonkeyDevPath)/Librarys/**",
+					"$(MonkeyDevTheosPath)/vendor/lib",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "testmokeyDylib/testmokeyDylib-Prefix.pch";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(MonkeyDevPath)/include",
+					"$(MonkeyDevTheosPath)/vendor/include/**",
+				);
+				INSTALL_PATH = "@executable_path/Frameworks/libtestmokeyDylib.dylib";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(MonkeyDevPath)/Frameworks",
+					"$(MonkeyDevTheosPath)/vendor/lib/**",
+				);
+				MonkeyDevPath = /opt/MonkeyDev;
+				MonkeyDevTheosPath = /opt/theos;
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-DTHEOS_INSTANCE_NAME=\"\\\"testmokeyDylib\\\"\"",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-weak_library",
+					"/usr/lib/libc++.dylib",
+					"-weak_library",
+					"/usr/lib/libstdc++.dylib",
+					"-weak_library",
+					"$(MonkeyDevPath)/Frameworks/libsubstrate.dylib",
+					"-lcycript",
+					"-framework",
+					RevealServer,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
+			};
+			name = Debug;
+		};
+		1432BD8B2539CACA0014865E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = UB6H7XT56R;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				ENABLE_BITCODE = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				EXECUTABLE_PREFIX = lib;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(MonkeyDevPath)/Frameworks/**",
+					"$(MonkeyDevPath)/Librarys/**",
+					"$(MonkeyDevTheosPath)/vendor/lib",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "testmokeyDylib/testmokeyDylib-Prefix.pch";
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(MonkeyDevPath)/include",
+					"$(MonkeyDevTheosPath)/vendor/include/**",
+				);
+				INSTALL_PATH = "@executable_path/Frameworks/libtestmokeyDylib.dylib";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(MonkeyDevPath)/Frameworks",
+					"$(MonkeyDevTheosPath)/vendor/lib/**",
+				);
+				MonkeyDevPath = /opt/MonkeyDev;
+				MonkeyDevTheosPath = /opt/theos;
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-DTHEOS_INSTANCE_NAME=\"\\\"testmokeyDylib\\\"\"",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-weak_library",
+					"/usr/lib/libc++.dylib",
+					"-weak_library",
+					"/usr/lib/libstdc++.dylib",
+					"-weak_library",
+					"$(MonkeyDevPath)/Frameworks/libsubstrate.dylib",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1432BD8D2539CACA0014865E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UB6H7XT56R;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = testmokey/Info.plist;
+				MONKEYDEV_ADD_SUBSTRATE = YES;
+				MONKEYDEV_CLASS_DUMP = NO;
+				MONKEYDEV_DEFAULT_BUNDLEID = NO;
+				MONKEYDEV_INSERT_DYLIB = YES;
+				MONKEYDEV_RESTORE_SYMBOL = NO;
+				MONKEYDEV_TARGET_APP = Optional;
+				PODS_CONFIGURATION_BUILD_DIR = "$BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				PODS_ROOT = "${SRCROOT}/Pods";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hao.ye.test5;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1432BD8E2539CACA0014865E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UB6H7XT56R;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = testmokey/Info.plist;
+				MONKEYDEV_ADD_SUBSTRATE = YES;
+				MONKEYDEV_CLASS_DUMP = NO;
+				MONKEYDEV_DEFAULT_BUNDLEID = NO;
+				MONKEYDEV_INSERT_DYLIB = YES;
+				MONKEYDEV_RESTORE_SYMBOL = NO;
+				MONKEYDEV_TARGET_APP = Optional;
+				PODS_CONFIGURATION_BUILD_DIR = "$BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				PODS_ROOT = "${SRCROOT}/Pods";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hao.ye.test5;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1432BD262539CACA0014865E /* Build configuration list for PBXProject "testmokey" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1432BD872539CACA0014865E /* Debug */,
+				1432BD882539CACA0014865E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1432BD892539CACA0014865E /* Build configuration list for PBXNativeTarget "testmokeyDylib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1432BD8A2539CACA0014865E /* Debug */,
+				1432BD8B2539CACA0014865E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1432BD8C2539CACA0014865E /* Build configuration list for PBXNativeTarget "testmokey" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1432BD8D2539CACA0014865E /* Debug */,
+				1432BD8E2539CACA0014865E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1432BD232539CACA0014865E /* Project object */;
+}
