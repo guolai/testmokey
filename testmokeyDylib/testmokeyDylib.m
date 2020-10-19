@@ -19,6 +19,9 @@
 #import "KSMethodLibrary.h"
 #import <Photos/Photos.h>
 
+
+static id gpuFilter = nil;
+
 CHConstructor{
     printf(INSERT_SUCCESS_WELCOME);
     
@@ -95,26 +98,59 @@ CHConstructor{
     CHHook1(CustomViewController, setNewProperty);
 }
 
-//CHDeclareClass(FilterViewController)
-//CHOptimizedMethod3(self, id, FilterViewController, genStarStreak, id, arg1, withDir, long, arg2, withType, long, arg3) {
-//    NSLog(@"genStarStreak %@, dir:%d,type:%d", arg1, arg2, arg3);
-//    return CHSuper3(FilterViewController, genStarStreak, arg1, withDir, arg2, withType, arg3);
-//}
-//
-//CHConstructor{
-//    CHLoadLateClass(FilterViewController);
-//
-//    CHHook3(FilterViewController, genStarStreak, withDir, withType);
-//}
+
 
 CHDeclareClass(GPUImageFilter)
 CHOptimizedMethod2(self,id,GPUImageFilter,initWithVertexShaderFromString,NSString *,arg1,fragmentShaderFromString,NSString *,arg2){
     NSLog(@"class %@",self);
+    NSString *strSelf = [NSString stringWithFormat:@"%@", self];
     NSLog(@"bob v:%@",arg1);
     NSLog(@"bob f:%@",arg2);
     NSLog(@"===============================\n");
-//    LogMessage(@"filter", 1, arg2);
-    return CHSuper2(GPUImageFilter,initWithVertexShaderFromString,arg1,fragmentShaderFromString,arg2);
+    NSString *fragStr = arg2;
+    if([strSelf containsString:@"GPUImageStarGlareFilter"]) {
+//        gpuFilter = self;
+        NSLog(@"GPUImageStarGlareFilter find");
+    }
+    if([strSelf containsString:@"GPUImageAFLengthFilter"]) {
+        fragStr = @"precision highp float; varying highp vec2 textureCoordinate; varying highp vec2 textureCoordinate2; uniform sampler2D inputImageTexture; uniform sampler2D inputImageTexture2; uniform float afLength; void main() { vec3 src= min(texture2D(inputImageTexture, textureCoordinate).rgb,vec3(1.0)); vec3 dst= (texture2D(inputImageTexture2, textureCoordinate).rgb-afLength); gl_FragColor = texture2D(inputImageTexture2, textureCoordinate2); }";
+        NSLog(@"GPUImageAFLengthFilter find");
+    }
+    if([strSelf containsString:@"GPUImageExtractHighLightAreaNoise"]) {
+//        gpuFilter = self;
+        NSLog(@"GPUImageExtractHighLightAreaNoise find");
+    }
+    if([strSelf containsString:@"GPUImageGlareCompositionFilter"]) {
+//        gpuFilter = self;
+         fragStr = @"precision highp float; varying highp vec2 textureCoordinate; varying highp vec2 textureCoordinate2; varying highp vec2 textureCoordinate3; uniform sampler2D inputImageTexture; uniform sampler2D inputImageTexture2; uniform sampler2D inputImageTexture3; uniform vec3 mixCoeff; void main() { gl_FragColor = texture2D(inputImageTexture3, textureCoordinate3);}";
+        NSLog(@"GPUImageGlareCompositionFilter find");
+    }
+    if([strSelf containsString:@"TempGlareCompositionFilter"]) {
+        fragStr = @"precision highp float; varying highp vec2 textureCoordinate; varying highp vec2 textureCoordinate2; uniform sampler2D inputImageTexture; uniform sampler2D inputImageTexture2; uniform vec3 mixCoeff; void main() { gl_FragColor = texture2D(inputImageTexture2, textureCoordinate2);}";
+        NSLog(@"TempGlareCompositionFilter find");
+    }
+    if([strSelf containsString:@"GPUImageMaxFilter"]) {
+        fragStr = @"precision highp float; varying highp vec2 textureCoordinate; varying highp vec2 textureCoordinate2; uniform sampler2D inputImageTexture; uniform sampler2D inputImageTexture2; void main() { gl_FragColor = texture2D(inputImageTexture2, textureCoordinate2); }";
+        NSLog(@"GPUImageMaxFilter find");
+    }
+    if([strSelf containsString:@"GPUImageVague2Filter"]) {
+//        if(!gpuFilter) {
+//            gpuFilter  = self;
+//        }
+        NSLog(@"GPUImageVague2Filter find");
+    }
+    if([strSelf containsString:@"GPUImageFilter"]) {
+//        if(!gpuFilter) {
+//            gpuFilter  = self;
+//        }
+        NSLog(@"GPUImageFilter find");
+    }
+    if([strSelf containsString:@"GPUImageToneMappingPassFilter"]) {
+//        gpuFilter = self;
+        fragStr = @"precision highp float; varying highp vec2 textureCoordinate; varying highp vec2 textureCoordinate2; varying highp vec2 textureCoordinate3; uniform sampler2D inputImageTexture; uniform sampler2D inputImageTexture2; uniform sampler2D inputImageTexture3; uniform vec3 uCOLOR; uniform vec3 uTONE; uniform vec3 uFX; uniform float uFilter; uniform float isHiddenStart; const vec3 LumCoeff = vec3(0.2125, 0.7154, 0.0721); const vec3 AvgLumin = vec3(0.5, 0.5, 0.5); void main(){ if(isHiddenStart > 0.5){ gl_FragColor = texture2D(inputImageTexture, textureCoordinate); }else{ vec4 textureColor = texture2D(inputImageTexture, textureCoordinate); vec4 textureColor2 = texture2D(inputImageTexture2, textureCoordinate2); vec4 whiteColor = vec4(1.0, 0.0, 0.0, 1.0); gl_FragColor = textureColor2; } }";
+        NSLog(@"GPUImageToneMappingPassFilter find");
+    }
+    return CHSuper2(GPUImageFilter,initWithVertexShaderFromString,arg1,fragmentShaderFromString,fragStr);
 }
 
 CHConstructor{
@@ -126,19 +162,7 @@ CHConstructor{
 //- (void)addTarget:(id<GPUImageInput>)newTarget atTextureLocation:(NSInteger)textureLocation;
 CHDeclareClass(GPUImageOutput)
 CHOptimizedMethod2(self, void, GPUImageOutput, addTarget, id, arg1, atTextureLocation, int, arg2) {
-    NSLog(@"addTarget %@, %@", self, arg1);
-    if([arg1 isKindOfClass:NSClassFromString(@"GPUImageStarGlareFilter")]) {
-        NSLog(@"GPUImageStarGlareFilter find");
-    }
-    if([arg1 isKindOfClass:NSClassFromString(@"GPUImageExtractHighLightAreaNoise")]) {
-        NSLog(@"GPUImageExtractHighLightAreaNoise find");
-    }
-    if([arg1 isKindOfClass:NSClassFromString(@"GPUImageGlareCompositionFilter")]) {
-        NSLog(@"GPUImageGlareCompositionFilter find");
-    }
-    if([arg1 isKindOfClass:NSClassFromString(@"TempGlareCompositionFilter")]) {
-        NSLog(@"TempGlareCompositionFilter find");
-    }
+    NSLog(@"addTarget %@, %@, %d", self, arg1, arg2);
     CHSuper2(GPUImageOutput, addTarget, arg1, atTextureLocation, arg2);
 }
 CHConstructor{
@@ -146,61 +170,61 @@ CHConstructor{
     CHHook2(GPUImageOutput, addTarget, atTextureLocation);
 }
 
-CHDeclareClass(GPUImageFramebuffer)
-
-//CHOptimizedMethod0(self, void *, GPUImageFramebuffer, newCGImageFromFramebufferContents) {
-//    NSLog(@"newCGImageFromFramebufferContents");
-//    return CHSuper0(GPUImageFramebuffer, newCGImageFromFramebufferContents);
+//CHDeclareClass(GPUImageFramebuffer)
+//
+////CHOptimizedMethod0(self, void *, GPUImageFramebuffer, newCGImageFromFramebufferContents) {
+////    NSLog(@"newCGImageFromFramebufferContents");
+////    return CHSuper0(GPUImageFramebuffer, newCGImageFromFramebufferContents);
+////}
+//////CHOptimizedMethod
+//CHDeclareMethod0(UIImage *, GPUImageFramebuffer, genenImageFromBuffer) {
+//    NSLog(@"genenImageFromBuffer");
+//    NSValue *sizeValue = invokeFunctor(self, @selector(valueForKey:),@"size", -1);
+//    CGSize size = sizeValue.CGSizeValue;
+//    NSUInteger totalNumberOfPixels = round(size.width * size.height);
+//    GLubyte *rawImagePixels = nil;
+//    if (rawImagePixels == NULL){
+//        rawImagePixels = (GLubyte *)malloc(totalNumberOfPixels * 4);
+//    }
+//
+//    invokeFunctor(self, @selector(activateFramebuffer), -1);
+//    glReadPixels(0, 0, (int)size.width, (int)size.height, GL_RGBA, GL_UNSIGNED_BYTE, rawImagePixels);
+//
+//    CGDataProviderRef dataProvider = CGDataProviderCreateWithData((__bridge_retained void*)self, rawImagePixels, totalNumberOfPixels*4, nil);
+//
+//    CGColorSpaceRef defaultRGBColorSpace = CGColorSpaceCreateDeviceRGB();
+//
+//    CGImageRef cgImageFromBytes = CGImageCreate((int)size.width, (int)size.height, 8, 32, (int)size.width*4, defaultRGBColorSpace, kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst, dataProvider, NULL, NO, kCGRenderingIntentDefault);
+//    UIImage *image = [UIImage imageWithCGImage:cgImageFromBytes];
+//    CGImageRelease(cgImageFromBytes);
+//    CGDataProviderRelease(dataProvider);
+//    CGColorSpaceRelease(defaultRGBColorSpace);
+////    free(rawImagePixels);
+//    NSLog(@"%@", image);
+//    if(image) {
+//        NSData* imageData =  UIImagePNGRepresentation(image);
+//        UIImage* pngImage = [UIImage imageWithData:imageData];
+//        [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+//            [PHAssetChangeRequest creationRequestForAssetFromImage:pngImage];
+//        } completionHandler:^(BOOL success, NSError * _Nullable error) {
+//            if (error) {
+//                NSLog(@"%@",@"保存失败");
+//            } else {
+//                NSLog(@"%@",@"保存成功");
+//            }
+//        }];
+//    }
+//    return image;
 //}
-////CHOptimizedMethod
-CHDeclareMethod0(UIImage *, GPUImageFramebuffer, genenImageFromBuffer) {
-    NSLog(@"genenImageFromBuffer");
-    NSValue *sizeValue = invokeFunctor(self, @selector(valueForKey:),@"size", -1);
-    CGSize size = sizeValue.CGSizeValue;
-    NSUInteger totalNumberOfPixels = round(size.width * size.height);
-    GLubyte *rawImagePixels = nil;
-    if (rawImagePixels == NULL){
-        rawImagePixels = (GLubyte *)malloc(totalNumberOfPixels * 4);
-    }
-
-    invokeFunctor(self, @selector(activateFramebuffer), -1);
-    glReadPixels(0, 0, (int)size.width, (int)size.height, GL_RGBA, GL_UNSIGNED_BYTE, rawImagePixels);
-
-    CGDataProviderRef dataProvider = CGDataProviderCreateWithData((__bridge_retained void*)self, rawImagePixels, totalNumberOfPixels*4, nil);
-
-    CGColorSpaceRef defaultRGBColorSpace = CGColorSpaceCreateDeviceRGB();
-
-    CGImageRef cgImageFromBytes = CGImageCreate((int)size.width, (int)size.height, 8, 32, (int)size.width*4, defaultRGBColorSpace, kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst, dataProvider, NULL, NO, kCGRenderingIntentDefault);
-    UIImage *image = [UIImage imageWithCGImage:cgImageFromBytes];
-    CGImageRelease(cgImageFromBytes);
-    CGDataProviderRelease(dataProvider);
-    CGColorSpaceRelease(defaultRGBColorSpace);
-//    free(rawImagePixels);
-    NSLog(@"%@", image);
-    if(image) {
-        NSData* imageData =  UIImagePNGRepresentation(image);
-        UIImage* pngImage = [UIImage imageWithData:imageData];
-        [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
-            [PHAssetChangeRequest creationRequestForAssetFromImage:pngImage];
-        } completionHandler:^(BOOL success, NSError * _Nullable error) {
-            if (error) {
-                NSLog(@"%@",@"保存失败");
-            } else {
-                NSLog(@"%@",@"保存成功");
-            }
-        }];
-    }
-    return image;
-}
-
-
-
-CHConstructor{
-    CHLoadLateClass(GPUImageFramebuffer);
-//    CHHook0(GPUImageFramebuffer, genenImageFromBuffer);
-//    CHHook0(GPUImageFramebuffer, newCGImageFromFramebufferContents);
-}
-
+//
+//
+//
+//CHConstructor{
+//    CHLoadLateClass(GPUImageFramebuffer);
+////    CHHook0(GPUImageFramebuffer, genenImageFromBuffer);
+////    CHHook0(GPUImageFramebuffer, newCGImageFromFramebufferContents);
+//}
+//
 //CHDeclareClass(GPUImageStarGlareFilter)
 //CHOptimizedMethod2(self, void, GPUImageStarGlareFilter, renderToTextureWithVertices, void *, arg1, textureCoordinates, void *, arg2){
 ////    NSString *pSlef = [NSString stringWithFormat:@"%p", self];
@@ -243,8 +267,8 @@ CHConstructor{
 //    CHHook2(GPUImageStarGlareFilter, renderToTextureWithVertices, textureCoordinates);
 //    //    CHHook1(GPUImageStarGlareFilter, setColorCoeff);
 //}
-////TempGlareCompositionFilter
-//
+//TempGlareCompositionFilter
+
 //CHDeclareClass(TempGlareCompositionFilter)
 //CHOptimizedMethod2(self, void, TempGlareCompositionFilter, renderToTextureWithVertices, void *, arg1, textureCoordinates, void *, arg2){
 //    NSString *pSlef = [NSString stringWithFormat:@"%p", self];
@@ -257,9 +281,9 @@ CHConstructor{
 //
 //    if(count >= 600 && ![dic objectForKey:pSlef]) {
 //        [dic setValue:@"123" forKey:pSlef];
-//        glFinish();
-//        GPUImageFramebuffer *fb1 = CHIvar(self,firstInputFramebuffer,__strong GPUImageFramebuffer *);
-//        UIImage *image1 = invokeFunctor(fb1, @selector(genenImageFromBuffer), -1);
+////        glFinish();
+////        GPUImageFramebuffer *fb1 = CHIvar(self,firstInputFramebuffer,__strong GPUImageFramebuffer *);
+////        UIImage *image1 = invokeFunctor(fb1, @selector(genenImageFromBuffer), -1);
 ////        if(image1) {
 ////            NSData* imageData =  UIImagePNGRepresentation(image1);
 ////            UIImage* pngImage = [UIImage imageWithData:imageData];
@@ -274,8 +298,8 @@ CHConstructor{
 ////            }];
 ////            NSLog(@"UIImageWriteToSavedPhotosAlbum %@", pSlef);
 ////        }
-//        GPUImageFramebuffer *fb2 = CHIvar(self,secondInputFramebuffer,__strong GPUImageFramebuffer *);
-//        UIImage *image2 = invokeFunctor(fb2, @selector(genenImageFromBuffer), -1);
+////        GPUImageFramebuffer *fb2 = CHIvar(self,secondInputFramebuffer,__strong GPUImageFramebuffer *);
+////        UIImage *image2 = invokeFunctor(fb2, @selector(genenImageFromBuffer), -1);
 ////        if(image2) {
 ////            NSData* imageData =  UIImagePNGRepresentation(image2);
 ////            UIImage* pngImage = [UIImage imageWithData:imageData];
@@ -300,7 +324,7 @@ CHConstructor{
 //    CHLoadLateClass(TempGlareCompositionFilter);
 //    CHHook2(TempGlareCompositionFilter, renderToTextureWithVertices, textureCoordinates);
 //}
-//
+
 //CHDeclareClass(GPUImageGlareCompositionFilter)
 //CHOptimizedMethod2(self, void, GPUImageGlareCompositionFilter, renderToTextureWithVertices, void *, arg1, textureCoordinates, void *, arg2){
 ////    NSString *pSlef = [NSString stringWithFormat:@"%p", self];
@@ -342,23 +366,69 @@ CHConstructor{
 //    CHHook2(GPUImageGlareCompositionFilter, renderToTextureWithVertices, textureCoordinates);
 //}
 
+//GPUImageToneMappingPassFilter
+//CHDeclareClass(GPUImageToneMappingPassFilter)
+//CHOptimizedMethod2(self, void, GPUImageToneMappingPassFilter, renderToTextureWithVertices, void *, arg1, textureCoordinates, void *, arg2){
+////    invokeFunctor(self, @selector(removeAllTargets), -1);
+//    CHSuper2(GPUImageToneMappingPassFilter, renderToTextureWithVertices, arg1, textureCoordinates, arg2);
+//}
+//
+//CHOptimizedMethod1(self, void, GPUImageToneMappingPassFilter, informTargetsAboutNewFrameAtTime, void *, arg1) {
+////    NSLog(@"informTargetsAboutNewFrameAtTime");
+//    CHSuper1(GPUImageToneMappingPassFilter, informTargetsAboutNewFrameAtTime, arg1);
+//}
+//
+//CHConstructor{
+//    CHLoadLateClass(GPUImageToneMappingPassFilter);
+//    CHHook2(GPUImageToneMappingPassFilter, renderToTextureWithVertices, textureCoordinates);
+//    CHHook1(GPUImageToneMappingPassFilter, informTargetsAboutNewFrameAtTime);
+//}
+
 //- (id)initWithImage:(UIImage *)newImageSource;
 //- (id)initWithCGImage:(CGImageRef)newImageSource;
-CHDeclareClass(GPUImagePicture)
-CHOptimizedMethod1(self, void, GPUImagePicture, initWithImage, id, arg1) {
-    NSLog(@"addTarget %@, %@", self, arg1);
+//CHDeclareClass(GPUImagePicture)
+//CHOptimizedMethod1(self, void, GPUImagePicture, initWithImage, id, arg1) {
+//    NSLog(@"addTarget %@, %@", self, arg1);
+//
+//    CHSuper1(GPUImagePicture, initWithImage, arg1);
+//}
+//
+//CHOptimizedMethod1(self, void, GPUImagePicture, initWithCGImage, void *, arg1) {
+//    NSLog(@"addTarget %@, %@", self, arg1);
+//
+//    CHSuper1(GPUImagePicture, initWithCGImage, arg1);
+//}
+//
+//CHConstructor{
+//    CHLoadLateClass(GPUImagePicture);
+//    CHHook1(GPUImagePicture, initWithImage);
+//    CHHook1(GPUImagePicture, initWithCGImage);
+//}
 
-    CHSuper1(GPUImagePicture, initWithImage, arg1);
-}
 
-CHOptimizedMethod1(self, void, GPUImagePicture, initWithCGImage, void *, arg1) {
-    NSLog(@"addTarget %@, %@", self, arg1);
-
-    CHSuper1(GPUImagePicture, initWithCGImage, arg1);
-}
-
-CHConstructor{
-    CHLoadLateClass(GPUImagePicture);
-    CHHook1(GPUImagePicture, initWithImage);
-    CHHook1(GPUImagePicture, initWithCGImage);
-}
+//CHDeclareClass(GPUImageView)
+//
+//CHDeclareClass(FilterViewController)
+//
+//CHOptimizedMethod0(self, void, FilterViewController, startStarEffect) {
+//    CHSuper0(FilterViewController, startStarEffect);
+////    GPUImageFilter *tmpfilter = CHIvar(self,extractHighLightAreaNoiseFilter,__strong GPUImageFilter *);
+//    UIView *gpuView = CHIvar(self,_gpuImageView,__strong UIView *);
+////    GPUImageFilter *bobFilter = [[GPUImageFilter alloc] initWithFragmentShaderFromString:fragStr];
+//
+//    invokeFunctor(gpuFilter, @selector(addTarget:),gpuView, -1);
+////    GPUImageView *gpuView = [[GPUImageView alloc] init];
+//
+//}
+//
+////CHOptimizedMethod3(self, id, FilterViewController, genStarStreak, id, arg1, withDir, long, arg2, withType, long, arg3) {
+////    NSLog(@"genStarStreak %@, dir:%d,type:%d", arg1, arg2, arg3);
+////    return CHSuper3(FilterViewController, genStarStreak, arg1, withDir, arg2, withType, arg3);
+////}
+//
+//CHConstructor{
+//    CHLoadLateClass(GPUImageView);
+//    CHLoadLateClass(FilterViewController);
+//    CHHook0(FilterViewController, startStarEffect);
+//    //    CHHook3(FilterViewController, genStarStreak, withDir, withType);
+//}
