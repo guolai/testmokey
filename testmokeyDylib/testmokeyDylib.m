@@ -231,48 +231,32 @@ CHConstructor{
 //    CHHook0(GPUImageFramebuffer, newCGImageFromFramebufferContents);
 }
 
-//CHDeclareClass(GPUImageStarGlareFilter)
-//CHOptimizedMethod2(self, void, GPUImageStarGlareFilter, renderToTextureWithVertices, void *, arg1, textureCoordinates, void *, arg2){
-////    NSString *pSlef = [NSString stringWithFormat:@"%p", self];
-////    NSLog(@"%@, %@", self, pSlef);
-////    static int count = 0;
-////    static NSDictionary *dic = nil;
-////    if(!dic) {
-////        dic = [[NSMutableDictionary alloc] init];
-////    }
-////
-////    if(count >= 300 && ![dic objectForKey:pSlef]) {
-////        [dic setValue:@"123" forKey:pSlef];
-////        glFinish();
-////        GPUImageFramebuffer *fb1 = CHIvar(self,firstInputFramebuffer,__strong GPUImageFramebuffer *);
-////        UIImage *image1 = invokeFunctor(fb1, @selector(genenImageFromBuffer), -1);
-////        if(image1) {
-////            UIImageWriteToSavedPhotosAlbum(image1, nil, nil, nil);
-////            NSLog(@"UIImageWriteToSavedPhotosAlbum %@", pSlef);
-////        }
-////
-////        NSLog(@"%@", image1);
-//////        if(secondInputFramebuffer) {
-//////            GPUImageFramebuffer *fb2 = CHIvar(self,secondInputFramebuffer,__strong GPUImageFramebuffer *);
-//////            UIImage *image2 = invokeFunctor(fb2, @selector(genenImageFromBuffer), -1);
-//////            NSLog(@"%@---%@", image1, image2);
-//////        }
-////
-//////        count = 0;
-////    }
-////    count++;
-//    CHSuper2(GPUImageStarGlareFilter, renderToTextureWithVertices, arg1, textureCoordinates, arg2);
-//}
-////CHOptimizedMethod1(self, void, GPUImageStarGlareFilter, setColorCoeff, void *, arg1) {
-////    NSLog(@"%p", arg1);
-//////    CHSuper1(GPUImageStarGlareFilter, colorCoeff, arg1);
-////}
-//
-//CHConstructor{
-//    CHLoadLateClass(GPUImageStarGlareFilter);
-//    CHHook2(GPUImageStarGlareFilter, renderToTextureWithVertices, textureCoordinates);
-//    //    CHHook1(GPUImageStarGlareFilter, setColorCoeff);
-//}
+CHDeclareClass(GPUImageStarGlareFilter)
+CHOptimizedMethod2(self, void, GPUImageStarGlareFilter, renderToTextureWithVertices, void *, arg1, textureCoordinates, void *, arg2){
+    CHSuper2(GPUImageStarGlareFilter, renderToTextureWithVertices, arg1, textureCoordinates, arg2);
+    NSString *strSelf = [NSString stringWithFormat:@"%@", self];
+    if([strSelf containsString:@"GPUImageStarGlareFilter"]) {
+        GPUImageFramebuffer *fb1 = CHIvar(self,firstInputFramebuffer,__strong GPUImageFramebuffer *);
+        NSValue *sizeValue = invokeFunctor(fb1, @selector(valueForKey:),@"size", -1);
+        NSValue *stepSize = invokeFunctor(self, @selector(valueForKey:),@"stepSize", -1);
+        NSValue *sizeoffbo = invokeFunctor(self, @selector(sizeOfFBO), -1);
+        NSLog(@"%@, %@, %@", sizeValue, stepSize,sizeoffbo);
+        
+        NSValue *Stride = invokeFunctor(self, @selector(valueForKey:),@"Stride", -1);
+        NSValue *colorCoeff = invokeFunctor(self, @selector(valueForKey:),@"colorCoeff", -1);
+        NSValue *colorCoeff2 = invokeFunctor(self, @selector(valueForKey:),@"colorCoeff2", -1);
+        NSValue *colorCoeff3 = invokeFunctor(self, @selector(valueForKey:),@"colorCoeff3", -1);
+        NSValue *colorCoeff4 = invokeFunctor(self, @selector(valueForKey:),@"colorCoeff4", -1);
+        NSValue *flagStepSize = invokeFunctor(self, @selector(valueForKey:),@"flagStepSize", -1);
+        NSLog(@"1inputSize:%@,2 inputSize:%@, %@", sizeValue, stepSize,sizeoffbo);
+        NSLog(@"param:%@, %@, %@, %@, %@, %@", Stride, colorCoeff,colorCoeff2,  colorCoeff3,colorCoeff4,flagStepSize);
+    }
+}
+
+CHConstructor{
+    CHLoadLateClass(GPUImageStarGlareFilter);
+    CHHook2(GPUImageStarGlareFilter, renderToTextureWithVertices, textureCoordinates);
+}
 //TempGlareCompositionFilter
 
 //CHDeclareClass(TempGlareCompositionFilter)
@@ -382,7 +366,7 @@ CHOptimizedMethod2(self, void, GPUImageToneMappingPassFilter, renderToTextureWit
 CHOptimizedMethod1(self, void, GPUImageToneMappingPassFilter, informTargetsAboutNewFrameAtTime, void *, arg1) {
 //    NSLog(@"informTargetsAboutNewFrameAtTime");
     NSString *strSelf = [NSString stringWithFormat:@"%@", self];
-    if(![strSelf containsString:@"GPUImageToneMappingPassFilter"])
+//    if(![strSelf containsString:@"GPUImageToneMappingPassFilter"])
     {
         CHSuper1(GPUImageToneMappingPassFilter, informTargetsAboutNewFrameAtTime, arg1);
     }
