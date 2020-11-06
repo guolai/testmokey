@@ -185,6 +185,7 @@
 		1432BDBC2539CB9C0014865E /* STCocoa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STCocoa.m; sourceTree = "<group>"; };
 		1432BDBD2539CB9C0014865E /* STStructure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STStructure.m; sourceTree = "<group>"; };
 		1432BDBE2539CB9C0014865E /* OSXObjcRuntime+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OSXObjcRuntime+Additions.h"; sourceTree = "<group>"; };
+		14C6BFAA253FE9D0008EB791 /* testmokeyDylib-image.text */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "testmokeyDylib-image.text"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,6 +278,7 @@
 		1432BD4A2539CACA0014865E /* testmokeyDylib */ = {
 			isa = PBXGroup;
 			children = (
+				14C6BFAA253FE9D0008EB791 /* testmokeyDylib-image.text */,
 				1432BD832539CACA0014865E /* testmokeyDylib.h */,
 				1432BD852539CACA0014865E /* testmokeyDylib.m */,
 				1432BD4B2539CACA0014865E /* Logos */,
